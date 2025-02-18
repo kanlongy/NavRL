@@ -1,0 +1,25 @@
+ninja_required_version = 1.3
+cxx = c++
+
+cflags = -pthread -B /home/zhefan/Packages/miniconda3/envs/navrl/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /home/zhefan/Packages/miniconda3/envs/navrl/include -fPIC -O2 -isystem /home/zhefan/Packages/miniconda3/envs/navrl/include -fPIC -I/home/zhefan/isaac-sim/RLDrones/rl -I/home/zhefan/Packages/miniconda3/envs/navrl/lib/python3.10/site-packages/torch/include -I/home/zhefan/Packages/miniconda3/envs/navrl/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/home/zhefan/Packages/miniconda3/envs/navrl/lib/python3.10/site-packages/torch/include/TH -I/home/zhefan/Packages/miniconda3/envs/navrl/lib/python3.10/site-packages/torch/include/THC -I/home/zhefan/Packages/miniconda3/envs/navrl/include/python3.10 -c
+post_cflags = -O3 -std=c++17 -fdiagnostics-color=always -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=_torchrl -D_GLIBCXX_USE_CXX11_ABI=0
+cuda_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+
+
+
+
+build /home/zhefan/isaac-sim/RLDrones/rl/build/temp.linux-x86_64-cpython-310/home/zhefan/isaac-sim/RLDrones/rl/torchrl/csrc/pybind.o: compile /home/zhefan/isaac-sim/RLDrones/rl/torchrl/csrc/pybind.cpp
+
+
+
+
+
+
+

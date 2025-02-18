@@ -1,0 +1,8 @@
+numpy
+torch==2.0.1
+prettytable==3.3.0
+tensordict
+hidapi
+gymnasium==0.29.0
+trimesh
+pyglet<2

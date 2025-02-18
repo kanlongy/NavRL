@@ -1,0 +1,9 @@
+hydra-core
+omegaconf
+wandb
+moviepy
+imageio
+plotly
+einops
+av
+pandas

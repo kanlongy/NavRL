@@ -1,0 +1,10 @@
+numpy
+
+[dev]
+flake8
+black
+isort
+nvtx
+furo
+sphinx-copybutton
+coverage[toml]

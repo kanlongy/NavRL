@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: omni-isaac-contrib-tasks
+Version: 0.0.1
+Summary: Extension containing environments for robot learning contributed by the community.
+Home-page: https://github.com/NVIDIA-Omniverse/Orbit
+Author: Community
+Keywords: robotics,rl,il,learning
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Isaac Sim :: 2023.1.0-hotfix.1
+Classifier: Isaac Sim :: 2023.1.1
+Requires-Python: >=3.10

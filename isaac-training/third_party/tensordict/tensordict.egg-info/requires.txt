@@ -1,0 +1,16 @@
+torch>=2.1.0
+numpy
+cloudpickle
+
+[checkpointing]
+torchsnapshot-nightly
+
+[h5]
+h5py>=3.8
+
+[tests]
+pytest
+pyyaml
+pytest-instafail
+pytest-rerunfailures
+pytest-benchmark
