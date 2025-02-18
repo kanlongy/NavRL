@@ -91,3 +91,19 @@ docker-compose.override.yml
 */wandb/
 */wandb/*/files/
 */wandb/*/*.wandb
+
+# Ignore Isaac Orbit symlink
+isaac-training/third_party/orbit/_isaac_sim
+
+# Ignore version files
+isaac-training/third_party/rl/torchrl/version.py
+isaac-training/third_party/tensordict/tensordict/version.py
+
+# Ignore Hydra logs and configs
+isaac-training/training/scripts/outputs/*/.hydra/
+
+# Ignore Weights & Biases (wandb) logs
+isaac-training/training/scripts/wandb/
+
+isaac-training/training/scripts/outputs/
+isaac-training/third_party/warp/_build/
