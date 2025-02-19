@@ -30,6 +30,7 @@ conda activate $ENV_NAME
 pip install numpy==1.26.4
 pip install "pydantic!=1.7,!=1.7.1,!=1.7.2,!=1.7.3,!=1.8,!=1.8.1,<2.0.0,>=1.6.2"
 
+
 # Step 2: Install dependencies
 echo "Installing system dependencies..."
 sudo apt update && sudo apt install -y cmake build-essential
