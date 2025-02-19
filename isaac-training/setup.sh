@@ -57,22 +57,20 @@ echo "Setting up OmniDrones package..."
 cd ../OmniDrones
 pip install -e .
 
-# Step 5: Install TorchRL
-echo "Installing TorchRL..."
-cd ../rl
-pip install tomli  # If missing 'tomli'
-python setup.py develop
-pip uninstall -y tensordict
-pip uninstall -y tensordict
-pip cache purge  # Clear any cached wheels
-eval "$(conda shell.bash hook)"
-conda activate $ENV_NAME
-
-
-# Step 6: Install TensorDict and dependencies
+# Step 5: Install TensorDict and dependencies
 echo "Installing TensorDict dependencies..."
+pip uninstall -y tensordict
+pip uninstall -y tensordict
+pip install tomli  # If missing 'tomli'
 cd ../tensordict
 python setup.py develop
+
+
+# Step 6: Install TorchRL
+echo "Installing TorchRL..."
+cd ../rl
+python setup.py develop
+
 
 
 # Check which torch is being used
