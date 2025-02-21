@@ -4,7 +4,6 @@ defaults:
   - ppo
   - sim
 
-# headless: True
 headless: False
 device: "cuda:0"
 seed: 0
@@ -27,15 +26,13 @@ env_dyn:
   local_range: [5.0, 5.0, 4.5]
 
 viewer:
-  # eye: [-38, 0.0, 50]
   eye: [0., 40., 40.]
   lookat: [0., 2.5, 0.]
   resolution: [960, 720]
 
 wandb:
-  project: RL-Navigation
-  name: env-code-clean
+  project: NavRL
+  name: navigation_training
   entity: CERLAB-UAV-RL-Navigation
   mode: offline # online
-  # mode:  online
   run_id: #kw9xf9k9

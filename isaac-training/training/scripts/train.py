@@ -103,7 +103,7 @@ def main(cfg):
 
         # Evaluate policy and log info
         if i % cfg.eval_interval == 0:
-            print("[RLNavigation]: start evaluating policy at training step: ", i)
+            print("[NavRL]: start evaluating policy at training step: ", i)
             env.enable_render(True)
             env.eval()
             eval_info = evaluate(
@@ -117,7 +117,7 @@ def main(cfg):
             env.train()
             env.reset()
             info.update(eval_info)
-            print("\n[RLNavigation]: evaluation done.")
+            print("\n[NavRL]: evaluation done.")
         
         # Update wand info
         run.log(info)
@@ -127,7 +127,7 @@ def main(cfg):
         if i % cfg.save_interval == 0:
             ckpt_path = os.path.join(run.dir, f"checkpoint_{i}.pt")
             torch.save(policy.state_dict(), ckpt_path)
-            print("[RLNavigation]: model saved at training step: ", i)
+            print("[NavRL]: model saved at training step: ", i)
 
     ckpt_path = os.path.join(run.dir, "checkpoint_final.pt")
     torch.save(policy.state_dict(), ckpt_path)

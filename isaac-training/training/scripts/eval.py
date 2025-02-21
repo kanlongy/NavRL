@@ -58,8 +58,8 @@ def main(cfg):
     policy = PPO(cfg.algo, transformed_env.observation_spec, transformed_env.action_spec, cfg.device)
 
     # checkpoint = "/home/zhefan/catkin_ws/src/test_navigation/scripts/ckpts/checkpoint_2500.pt"
-    # checkpoint = "/home/zhefan/catkin_ws/src/test_navigation/scripts/ckpts/checkpoint_final.pt"
-    policy.load_state_dict(torch.load("/home/antonio/catkin_ws/src/nav-ros/test_navigation/scripts/ckpts/checkpoint_31500_more-and-larger-cones.pt"))
+    checkpoint = "/home/zhefan/catkin_ws/src/test_navigation/scripts/ckpts/checkpoint_final.pt"
+    policy.load_state_dict(torch.load(checkpoint))
     
     # Episode Stats Collector
     episode_stats_keys = [
@@ -101,7 +101,7 @@ def main(cfg):
 
         # Evaluate policy and log info
         # if i % cfg.eval_interval == 0:
-        print("[RLNavigation]: start evaluating policy at training step: ", i)
+        print("[NavRL]: start evaluating policy at training step: ", i)
         env.eval()
         eval_info = evaluate(
             env=transformed_env, 
@@ -113,7 +113,7 @@ def main(cfg):
         env.train()
         env.reset()
         info.update(eval_info)
-        print("\n[RLNavigation]: evaluation done.")
+        print("\n[NavRL]: evaluation done.")
         
         # Update wand info
         run.log(info)
@@ -123,7 +123,7 @@ def main(cfg):
         # if i % cfg.save_interval == 0:
         #     ckpt_path = os.path.join(run.dir, f"checkpoint_{i}.pt")
         #     torch.save(policy.state_dict(), ckpt_path)
-        #     print("[RLNavigation]: model saved at training step: ", i)
+        #     print("[NavRL]: model saved at training step: ", i)
 
     # ckpt_path = os.path.join(run.dir, "checkpoint_final.pt")
     # torch.save(policy.state_dict(), ckpt_path)
