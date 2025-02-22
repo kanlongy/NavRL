@@ -1,4 +1,4 @@
-# NavRL
+# NavRL: Learning Safe Flight in Dynamic Environments
 This repository provides the implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Deep Reinforcement Learning. 
 
 
