@@ -108,6 +108,22 @@ Then, set the environment vairable for Gazebo models.
 ```
 echo 'source /path/to/ros1/uav_simulator/gazeboSetup.bash' >> ~/.bashrc
 ```
+Finally, start the simulation and deploy NavRL navigation.
+```
+# Launch the gazebo simulator
+roslaunch uav_simulator start.launch
+
+# Start the perception and safety module
+roslaunch navigation_runner safety_and_perception_sim.launch
+
+# Run the navigation node
+conda activate NavRL
+rosrun navigation_runner navigation_node.py
+```
+A Gazebo window will display the environment while an RViz window presents the data. Use RViz's ```2D Nav Goal``` tool to set the navigation target, as shown in the video below (note: the default environment and settings might be different from the video):
+
+To change the environment settings, review the launch file at ```ros1/uav_simulator/launch/start.launch```. The parameters for each module are located in ```ros1/navigation_runner/cfg/*.yaml``` configuration files.
+
 
 ## NavRL ROS2 Deployment
 
