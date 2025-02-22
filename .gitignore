@@ -107,3 +107,5 @@ isaac-training/training/scripts/wandb/
 
 isaac-training/training/scripts/outputs/
 isaac-training/third_party/warp/_build/
+
+isaac-training/outputs/
