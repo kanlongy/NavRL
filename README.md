@@ -1,5 +1,13 @@
 # NavRL: Learning Safe Flight in Dynamic Environments
-This repository provides the implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Deep Reinforcement Learning. 
+[![Python](https://img.shields.io/badge/python-3.10-blue.svg)](https://docs.python.org/3/whatsnew/3.10.html)
+[![ROS1](https://img.shields.io/badge/ROS1-Noetic-yellow.svg)](https://wiki.ros.org/noetic)
+[![ROS2](https://img.shields.io/badge/ROS2-Humble-orange.svg)](https://docs.ros.org/en/humble/index.html)
+[![IsaacSim](https://img.shields.io/badge/IsaacSim-red.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
+[![Linux platform](https://img.shields.io/badge/platform-Ubuntu--20.04-green.svg)](https://releases.ubuntu.com/20.04/)
+[![Linux platform](https://img.shields.io/badge/platform-Ubuntu--22.04-purple.svg)](https://releases.ubuntu.com/22.04/)
+
+
+Welcome to the NavRL repository! This repository provides the implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Deep Reinforcement Learning. 
 
 
 The related paper can be found on:
