@@ -8,14 +8,10 @@ The related paper can be found on:
 
 
 ## Table of Contents
+ - [Training in NVIDIA Isaac Sim](#Training-in-NVIDIA-Isaac-Sim)
  - [NavRL ROS1 Demo](#NavRL-ROS1-Demo)
  - [NavRL ROS2 Demo](#NavRL-ROS1-Demo)
- - [Training in NVIDIA Isaac Sim](#Training-in-NVIDIA-Isaac-Sim)
 
-
-## NavRL ROS1 Demo
-
-## NavRL ROS2 Demo
 
 ## Training in NVIDIA Isaac Sim
 This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim.
@@ -88,10 +84,8 @@ The training environment settings and hyerparameters can be found in ```NavRL/is
 
 The following example demonstrates training with 1024 robots, 350 static obstacles, and 80 dynamic obstacles (an RTX 4090 is required). We recommend using [Wandb](https://wandb.ai/site/) to monitor your training and evaluation statistics.
 ```
-cd isaac-training/training/script
 python training/script/train.py headless=True env.num_envs=1024 env.num_obstacles=350 \
 env_dyn.num_obstacles=80 wandb.mode=online
-
 ```
 After training for a sufficient amount of time, you should observe the robots learning to avoid collisions:
 
@@ -99,7 +93,23 @@ https://github.com/user-attachments/assets/2294bd94-69b3-4ce8-8e91-0118cfae9bcd
 
 
 
+## NavRL ROS1 Demo
+This section demonstrates an example of deploying NavRL with ROS1 and Gazebo using a quadcopter robot. Ensure that your system meets the following requirements:
 
+- Ubuntu 20.04 LTS
+- ROS1 Noetic
+
+First, copy the ```ros1``` folder from this repository into your catkin workspace.
+```
+cp ros1 /path/to/catkin_ws/src
+catkin_make
+```
+Then, set the environment vairable for Gazebo models.
+```
+echo 'source /path/to/ros1/uav_simulator/gazeboSetup.bash' >> ~/.bashrc
+```
+
+## NavRL ROS2 Demo
 
 
 

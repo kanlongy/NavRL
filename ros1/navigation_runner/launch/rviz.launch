@@ -1,0 +1,3 @@
+<launch>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find navigation_runner)/rviz/test_navigation.rviz" required="true"/>
+</launch>
