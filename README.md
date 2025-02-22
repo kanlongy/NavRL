@@ -124,7 +124,10 @@ A Gazebo window will display the environment while an RViz window presents the d
 
 
 
-https://github.com/user-attachments/assets/80ca7708-2ce4-4f22-81bb-d6e06fa6ddd9
+
+
+https://github.com/user-attachments/assets/b7cc7e2e-c01d-4e44-87e3-97271a3aaa0f
+
 
 
 
