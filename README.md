@@ -4,7 +4,7 @@ This repository provides the implementation of the [NavRL](https://arxiv.org/pdf
 
 The related paper can be found on:
 
-**Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learning Safe Flight in Dynamic Environments”, IEEE Robotics and Automation Letters (RA-L), 2024.** [\[paper\]](https://arxiv.org/pdf/2409.156346) [\[video\]](https://youtu.be/EbeJW8-YlvI).
+**Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learning Safe Flight in Dynamic Environments”, IEEE Robotics and Automation Letters (RA-L), 2025.** [\[paper\]](https://arxiv.org/pdf/2409.156346) [\[video\]](https://youtu.be/EbeJW8-YlvI).
 
 
 ## Table of Contents
