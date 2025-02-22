@@ -32,7 +32,7 @@ docker run --name isaac-sim --entrypoint bash -it --runtime=nvidia --gpus all -e
 ```
 c. Move the downloaded Isaac Sim from the docker container to your local machine:
 ```
-bash docker ps # check your container ID
+bash docker ps # check your container ID in another terminal
 
 # Replace <id_container> with the output from the previous command
 docker cp <id_container>:isaac-sim/. /path/to/local/folder # absolute path
