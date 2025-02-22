@@ -5,7 +5,7 @@
 This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim.
 
 
-### Installation
+### Isaac Sim Installation
 This project was developed using **Isaac Sim version 2023.1.0-hotfix.1**, released in November 2023. **Please make sure you download and use this exact version, as using a different version may lead to errors due to version incompatibility.** Also, ensure that you have [conda](https://docs.anaconda.com/miniconda/) installed.
 
 If you have already downloaded Isaac Sim version 2023.1.0-hotfix.1, you can skip the following steps. Otherwise, please follow the instructions below to download the legacy version of Isaac Sim, as the official installation does not support legacy version downloads. 
@@ -41,6 +41,7 @@ docker cp <id_container>:isaac-sim/. /path/to/local/folder # absolute path
 
 Isaac Sim version 2023.1.0-hotfix.1 is now installed on your local machine.
 
+### NavRL Training Setup
 To set up the NavRL framework, clone the repository and follow these steps (this process may take several minutes):
 ```
 # Set the ISAACSIM_PATH environment variable
