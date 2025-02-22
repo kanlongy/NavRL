@@ -122,6 +122,12 @@ rosrun navigation_runner navigation_node.py
 ```
 A Gazebo window will display the environment while an RViz window presents the data. Use RViz's ```2D Nav Goal``` tool to set the navigation target, as shown in the video below (note: the default environment and settings might be different from the video):
 
+
+
+https://github.com/user-attachments/assets/80ca7708-2ce4-4f22-81bb-d6e06fa6ddd9
+
+
+
 To change the environment settings, review the launch file at ```ros1/uav_simulator/launch/start.launch```. The parameters for each module are located in ```ros1/navigation_runner/cfg/*.yaml``` configuration files.
 
 
