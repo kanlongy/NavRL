@@ -8,8 +8,14 @@ The related paper can be found on:
 
 
 ## Table of Contents
-3. [Training in NVIDIA Isaac Sim](#Training-in-NVIDIA-Isaac-Sim)
+ - [NavRL ROS1 Demo](#NavRL-ROS1-Demo)
+ - [NavRL ROS2 Demo](#NavRL-ROS1-Demo)
+ - [Training in NVIDIA Isaac Sim](#Training-in-NVIDIA-Isaac-Sim)
 
+
+## NavRL ROS1 Demo
+
+## NavRL ROS2 Demo
 
 ## Training in NVIDIA Isaac Sim
 This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim.
