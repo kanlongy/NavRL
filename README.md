@@ -2,34 +2,81 @@
 
 
 ## Training in Isaac Sim
+This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim.
+
 
 ### Installation
+This project was developed using **Isaac Sim version 2023.1.0-hotfix.1**, released in November 2023. **Please make sure you download and use this exact version, as using a different version may lead to errors due to version incompatibility.** Also, ensure that you have [conda](https://docs.anaconda.com/miniconda/) installed.
+
+If you have already downloaded Isaac Sim version 2023.1.0-hotfix.1, you can skip the following steps. Otherwise, please follow the instructions below to download the legacy version of Isaac Sim, as the official installation does not support legacy version downloads. 
+
+To download Isaac Sim version 2023.1.0-hotfix.1:
+
+a. First, follow the steps on [this link](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_container.html) to complete the Docker Container Setup. 
+
+b. Then, download the Isaac Sim to your docker container:
 ```
-echo 'export ISAACSIM_PATH="path/to/isaac_sim"' >> ~/.bashrc
+docker pull nvcr.io/nvidia/isaac-sim:2023.1.0-hotfix.1
+
+docker run --name isaac-sim --entrypoint bash -it --runtime=nvidia --gpus all -e "ACCEPT_EULA=Y" --rm --network=host \
+    -e "PRIVACY_CONSENT=Y" \
+    -v ~/docker/isaac-sim/cache/kit:/isaac-sim/kit/cache:rw \
+    -v ~/docker/isaac-sim/cache/ov:/root/.cache/ov:rw \
+    -v ~/docker/isaac-sim/cache/pip:/root/.cache/pip:rw \
+    -v ~/docker/isaac-sim/cache/glcache:/root/.cache/nvidia/GLCache:rw \
+    -v ~/docker/isaac-sim/cache/computecache:/root/.nv/ComputeCache:rw \
+    -v ~/docker/isaac-sim/logs:/root/.nvidia-omniverse/logs:rw \
+    -v ~/docker/isaac-sim/data:/root/.local/share/ov/data:rw \
+    -v ~/docker/isaac-sim/documents:/root/Documents:rw \
+    nvcr.io/nvidia/isaac-sim:2023.1.0-hotfix.1
+```
+c. Move the downloaded Isaac Sim from the docker container to your local machine:
+```
+bash docker ps # check your container ID
+
+# Replace <id_container> with the output from the previous command
+docker cp <id_container>:isaac-sim/. /path/to/local/folder # absolute path
+```
+
+
+Isaac Sim version 2023.1.0-hotfix.1 is now installed on your local machine.
+
+To set up the NavRL framework, clone the repository and follow these steps (this process may take several minutes):
+```
+# Set the ISAACSIM_PATH environment variable
+echo 'export ISAACSIM_PATH="path/to/isaac_sim-2023.1.0-hotfix.1"' >> ~/.bashrc
 
 cd NavRL/isaac-training
 bash setup.sh
 ```
+After the setup completes, you should have created a virtual environment named NavRL.
 
-### Verify Installation and Run an Example
+### Verify Installation and Run a Training Example
+Use the default parameter to run a training example with 2 robots to verify installation.
 
 ```
+# Activate NavRL virtual environment
 conda activate NavRL
 
+# Run a training example with default settings
 python training/script/train.py
 ```
+If the repo is installed correctly, you should be able to see the Isaac Sim window as shown below: 
 
 ![isaac-training-window](https://github.com/user-attachments/assets/14a4d8a8-e607-434f-af9d-42d0d945e8d7)
 
 
+### Train your own RL agent
+The training environment settings and hyerparameters can be found in ```NavRL/isaac-training/training/cfg```.
 
-Train with 1024 robots with 350 static obstacles and 80 dynamic obstacles 
+The following example demonstrates training with 1024 robots, 350 static obstacles, and 80 dynamic obstacles (an RTX 4090 is required). We recommend using [Wandb](https://wandb.ai/site/) to monitor your training and evaluation statistics.
 ```
 cd isaac-training/training/script
 python training/script/train.py headless=True env.num_envs=1024 env.num_obstacles=350 \
 env_dyn.num_obstacles=80 wandb.mode=online
 
 ```
+After training for a sufficient amount of time, you should observe the robots learning to avoid collisions:
 
 https://github.com/user-attachments/assets/2294bd94-69b3-4ce8-8e91-0118cfae9bcd
 
