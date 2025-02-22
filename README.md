@@ -2,15 +2,21 @@
 [![Python](https://img.shields.io/badge/python-3.10-blue.svg)](https://docs.python.org/3/whatsnew/3.10.html)
 [![ROS1](https://img.shields.io/badge/ROS1-Noetic-yellow.svg)](https://wiki.ros.org/noetic)
 [![ROS2](https://img.shields.io/badge/ROS2-Humble-orange.svg)](https://docs.ros.org/en/humble/index.html)
-[![IsaacSim](https://img.shields.io/badge/IsaacSim-red.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
+[![IsaacSim](https://img.shields.io/badge/IsaacSim-NVIDIA-red.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
 [![Linux platform](https://img.shields.io/badge/platform-Ubuntu--20.04-green.svg)](https://releases.ubuntu.com/20.04/)
 [![Linux platform](https://img.shields.io/badge/platform-Ubuntu--22.04-purple.svg)](https://releases.ubuntu.com/22.04/)
 
 
 Welcome to the NavRL repository! This repository provides the implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Deep Reinforcement Learning. 
 
-![go2 navigation - gif](https://github.com/user-attachments/assets/22e6be11-9a8d-4207-b2ff-4cef3b601b41)
-![isaac-training](https://github.com/user-attachments/assets/d28627dd-0c5d-4499-bbc9-f0663124795d)
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/22e6be11-9a8d-4207-b2ff-4cef3b601b41" alt="go2 navigation - gif" style="width: 100%;"></td>
+    <td><img src="https://github.com/user-attachments/assets/d28627dd-0c5d-4499-bbc9-f0663124795d" alt="real experiment - gif" style="width: 100%;"></td>
+    <td><img src="https://github.com/user-attachments/assets/244c075a-ad45-40a8-a953-9bdc342420bf" alt="RL training - gif" style="width: 100%;"></td>
+  </tr>
+</table>
+
 
 
 The related paper can be found on:
