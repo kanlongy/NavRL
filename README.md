@@ -9,8 +9,8 @@ The related paper can be found on:
 
 ## Table of Contents
  - [Training in NVIDIA Isaac Sim](#Training-in-NVIDIA-Isaac-Sim)
- - [NavRL ROS1 Demo](#NavRL-ROS1-Demo)
- - [NavRL ROS2 Demo](#NavRL-ROS1-Demo)
+ - [NavRL ROS1 Deployment](#NavRL-ROS1-Deployment)
+ - [NavRL ROS2 Deployment](#NavRL-ROS1-Deployment)
 
 
 ## Training in NVIDIA Isaac Sim
@@ -93,7 +93,7 @@ https://github.com/user-attachments/assets/2294bd94-69b3-4ce8-8e91-0118cfae9bcd
 
 
 
-## NavRL ROS1 Demo
+## NavRL ROS1 Deployment
 This section demonstrates an example of deploying NavRL with ROS1 and Gazebo using a quadcopter robot. Ensure that your system meets the following requirements:
 
 - Ubuntu 20.04 LTS
@@ -109,7 +109,7 @@ Then, set the environment vairable for Gazebo models.
 echo 'source /path/to/ros1/uav_simulator/gazeboSetup.bash' >> ~/.bashrc
 ```
 
-## NavRL ROS2 Demo
+## NavRL ROS2 Deployment
 
 
 
