@@ -1,5 +1,11 @@
 # NavRL
-This repository provides an implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Deep Reinforcement Learning. 
+This repository provides the implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Deep Reinforcement Learning. 
+
+
+The related paper can be found on:
+
+**Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learning Safe Flight in Dynamic Environments”, IEEE Robotics and Automation Letters (RA-L), 2024.** [\[paper\]](https://arxiv.org/pdf/2409.156346) [\[video\]](https://youtu.be/EbeJW8-YlvI).
+
 
 ## Table of Contents
 3. [Training in NVIDIA Isaac Sim](#Training-in-NVIDIA-Isaac-Sim)
