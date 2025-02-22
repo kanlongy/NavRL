@@ -9,6 +9,9 @@
 
 Welcome to the NavRL repository! This repository provides the implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Deep Reinforcement Learning. 
 
+![go2 navigation - gif](https://github.com/user-attachments/assets/22e6be11-9a8d-4207-b2ff-4cef3b601b41)
+![isaac-training](https://github.com/user-attachments/assets/d28627dd-0c5d-4499-bbc9-f0663124795d)
+
 
 The related paper can be found on:
 
