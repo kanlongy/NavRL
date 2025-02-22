@@ -20,6 +20,10 @@ cd isaac-training/training/script
 python train.py
 ```
 
+![isaac-training-window](https://github.com/user-attachments/assets/14a4d8a8-e607-434f-af9d-42d0d945e8d7)
+
+
+
 Train with 1024 robots with 350 static obstacles and 80 dynamic obstacles 
 ```
 cd isaac-training/training/script
