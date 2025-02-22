@@ -1,7 +1,11 @@
 # NavRL
+This repository provides an implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Deep Reinforcement Learning. 
+
+## Table of Contents
+3. [Training in NVIDIA Isaac Sim](#Training-in-NVIDIA-Isaac-Sim)
 
 
-## Training in Isaac Sim
+## Training in NVIDIA Isaac Sim
 This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim.
 
 
