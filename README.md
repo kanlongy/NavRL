@@ -3,8 +3,7 @@
 [![ROS1](https://img.shields.io/badge/ROS1-Noetic-green.svg)](https://wiki.ros.org/noetic)
 [![ROS2](https://img.shields.io/badge/ROS2-Humble-F39C12.svg)](https://docs.ros.org/en/humble/index.html)
 [![IsaacSim](https://img.shields.io/badge/IsaacSim-NVIDIA-C0392B.svg)](https://docs.omniverse.nvidia.com/isaacsim/latest/overview.html)
-[![Linux platform](https://img.shields.io/badge/platform-Ubuntu--20.04-27AE60.svg)](https://releases.ubuntu.com/20.04/)
-[![Linux platform](https://img.shields.io/badge/platform-Ubuntu--22.04-8E44AD.svg)](https://releases.ubuntu.com/22.04/)
+[![Linux platform](https://img.shields.io/badge/platform-Ubuntu-27AE60.svg)](https://releases.ubuntu.com/22.04/)
 
 
 
