@@ -154,7 +154,11 @@ To change the environment settings, review the launch file at ```ros1/uav_simula
 
 
 ## III. NavRL ROS2 Deployment
-This section demonstrates an example of deploying NavRL with ROS2 and Isaac Sim using a Unitree Go2 quadruped robot. Please install the simulator based on [this link](https://github.com/Zhefan-Xu/isaac-go2-ros2):
+This section demonstrates an example of deploying NavRL with ROS2 and Isaac Sim using a Unitree Go2 quadruped robot. Ensure that your system meets the following requirements:
+- Ubuntu 22.04 LTS
+- ROS2 Humble
+
+Before get started, please install the simulator based on [this link](https://github.com/Zhefan-Xu/isaac-go2-ros2).
 
 First, copy the ```ros2``` folder from this repository into your ros2 workspace.
 ```
