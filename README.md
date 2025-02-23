@@ -153,6 +153,34 @@ To change the environment settings, review the launch file at ```ros1/uav_simula
 
 
 ## III. NavRL ROS2 Deployment
+This section demonstrates an example of deploying NavRL with ROS2 and Isaac Sim using a Unitree Go2 quadruped robot. Please install the simulator based on [this link](https://github.com/Zhefan-Xu/isaac-go2-ros2):
+
+First, copy the ```ros2``` folder from this repository into your ros2 workspace.
+```
+cp ros2 /path/to/ros2_ws/src
+colcon build --symlink-install
+```
+Then, start the simulation and deploy NavRL navigation.
+```
+# Launch Isaac Go2 simulator
+conda activate isaaclab
+cd /path/to/isaac-go2-ros2
+python isaac-go2-ros2.py
+
+# Start the perception and safety module
+ros2 launch navigation_runner perception.launch.py
+ros2 launch navigation_runner safe_action.launch.py # optional
+
+# Turn on Rviz2 visualization
+ros2 launch navigation_runner rviz.launch.py
+
+# Run the navigation launch
+conda activate NavRL
+ros2 launch navigation_runner navigation.launch.py
+```
+A Isaac Sim window will display the environment while an RViz window presents the data. Use RViz's 2D Nav Goal tool to set the navigation target. The navigation example is shown in the following video:
+
+
 
 
 ## IV. Reference
