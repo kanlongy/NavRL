@@ -183,7 +183,7 @@ ros2 launch navigation_runner rviz.launch.py
 conda activate NavRL
 ros2 launch navigation_runner navigation.launch.py
 ```
-A Isaac Sim window will display the environment while an RViz window presents the data. Use RViz's ```2D Nav Goal``` tool to set the navigation target. The navigation example is shown in the following video:
+An Isaac Sim window will display the environment while an RViz window presents the data. Use RViz's ```2D Nav Goal``` tool to set the navigation target. The navigation example is shown in the following video:
 
 
 https://github.com/user-attachments/assets/4787f503-d8a3-4d7b-9d17-7057b2cff1eb
