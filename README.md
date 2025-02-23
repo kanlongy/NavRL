@@ -19,18 +19,24 @@ Welcome to the NavRL repository! This repository provides the implementation of 
 
 
 
-For additional details , please refer to the related paper available here:
+For additional details, please refer to the related paper available here:
 
 Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learning Safe Flight in Dynamic Environments”, *IEEE Robotics and Automation Letters (RA-L)*, 2025. [\[preprint\]](https://arxiv.org/pdf/2409.156346) [\[video\]](https://youtu.be/EbeJW8-YlvI).
 
 
+## News
+
+* **2025-02-23:** The GitHub code, video demos, video tutorials and relavant papers for our NavRL framework are released. The authors will actively maintain and update this repo!
+
 ## Table of Contents
- - [Training in NVIDIA Isaac Sim](#Training-in-NVIDIA-Isaac-Sim)
- - [NavRL ROS1 Deployment](#NavRL-ROS1-Deployment)
- - [NavRL ROS2 Deployment](#NavRL-ROS1-Deployment)
+ - [Training in NVIDIA Isaac Sim](#I-Training-in-NVIDIA-Isaac-Sim)
+ - [NavRL ROS1 Deployment](#II-NavRL-ROS1-Deployment)
+ - [NavRL ROS2 Deployment](#III-NavRL-ROS1-Deployment)
+ - [Reference](#IV-Reference)
+ - [Acknowledgement](#V-Acknowledgement)
 
 
-## Training in NVIDIA Isaac Sim
+## I. Training in NVIDIA Isaac Sim
 This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim.
 
 
@@ -110,7 +116,7 @@ https://github.com/user-attachments/assets/2294bd94-69b3-4ce8-8e91-0118cfae9bcd
 
 
 
-## NavRL ROS1 Deployment
+## II. NavRL ROS1 Deployment
 This section demonstrates an example of deploying NavRL with ROS1 and Gazebo using a quadcopter robot. Ensure that your system meets the following requirements:
 
 - Ubuntu 20.04 LTS
@@ -140,20 +146,30 @@ rosrun navigation_runner navigation_node.py
 A Gazebo window will display the environment while an RViz window presents the data. Use RViz's ```2D Nav Goal``` tool to set the navigation target, as shown in the video below (note: the default environment and settings might be different from the video):
 
 
-
-
-
 https://github.com/user-attachments/assets/b7cc7e2e-c01d-4e44-87e3-97271a3aaa0f
-
-
 
 
 To change the environment settings, review the launch file at ```ros1/uav_simulator/launch/start.launch```. The parameters for each module are located in ```ros1/navigation_runner/cfg/*.yaml``` configuration files.
 
 
-## NavRL ROS2 Deployment
+## III. NavRL ROS2 Deployment
 
 
+## IV. Reference
+If our work is useful to your research, please consider citing our paper.
+```
+@article{xu2024navrl,
+  title={NavRL: Learning Safe Flight in Dynamic Environments},
+  author={Xu, Zhefan and Han, Xinming and Shen, Haoyu and Jin, Hanyu and Shimada, Kenji},
+  journal={arXiv preprint arXiv:2409.15634},
+  year={2024}
+}
+```
+
+## V. Acknowledgement
+The author would like to express his sincere gratitude to Professor Kenji Shimada for his great support and all CERLAB UAV team members who contribute to the development of this research.
+
+The Isaac Sim training component of the NavRL framework is built upon [OmniDrones](https://github.com/btx0424/OmniDrones).
 
 
 
