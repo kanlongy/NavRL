@@ -27,7 +27,7 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
 
 ## News
 
-* **2025-02-23:** The GitHub code, video demos, video tutorials and relavant papers for our NavRL framework are released. The authors will actively maintain and update this repo!
+* **2025-02-23:** The GitHub code, video demos, and relavant papers for our NavRL framework are released. The authors will actively maintain and update this repo!
 
 ## Table of Contents
  - [Training in NVIDIA Isaac Sim](#I-Training-in-NVIDIA-Isaac-Sim)
