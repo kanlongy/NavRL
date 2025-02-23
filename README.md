@@ -31,7 +31,7 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
 ## Table of Contents
  - [Training in NVIDIA Isaac Sim](#I-Training-in-NVIDIA-Isaac-Sim)
  - [NavRL ROS1 Deployment](#II-NavRL-ROS1-Deployment)
- - [NavRL ROS2 Deployment](#III-NavRL-ROS1-Deployment)
+ - [NavRL ROS2 Deployment](#III-NavRL-ROS2-Deployment)
  - [Reference](#IV-Reference)
  - [Acknowledgement](#V-Acknowledgement)
 
@@ -181,6 +181,7 @@ ros2 launch navigation_runner navigation.launch.py
 A Isaac Sim window will display the environment while an RViz window presents the data. Use RViz's 2D Nav Goal tool to set the navigation target. The navigation example is shown in the following video:
 
 
+https://github.com/user-attachments/assets/4787f503-d8a3-4d7b-9d17-7057b2cff1eb
 
 
 ## IV. Reference
