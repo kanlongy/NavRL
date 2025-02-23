@@ -7,7 +7,7 @@
 
 
 
-Welcome to the NavRL repository! This repository provides the implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Deep Reinforcement Learning. While the original paper focuses on UAV navigation, the NavRL framework can be extended to any robot that adopts a velocity-based control system.
+Welcome to the NavRL repository! This repository provides the implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Reinforcement Learning. While the original paper focuses on UAV navigation, the NavRL framework can be extended to any robot that adopts a velocity-based control system.
 
 
 <table>
