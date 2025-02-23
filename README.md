@@ -13,7 +13,7 @@ Welcome to the NavRL repository! This repository provides the implementation of 
   <tr>
     <td><img src="https://github.com/user-attachments/assets/49467fe4-e1c5-4f6d-a619-6e2063f99c5b" alt="mill19 2nd - gif" style="width: 100%;"></td>
     <td><img src="https://github.com/user-attachments/assets/12a64125-169c-46a8-8a7c-bb4bbecade55f" alt="mill19 1st - gif" style="width: 100%;"></td>
-<!--     <td><img src="https://github.com/user-attachments/assets/22e6be11-9a8d-4207-b2ff-4cef3b601b41" alt="go2 navigation - gif" style="width: 100%;"></td> -->
+    <td><img src="https://github.com/user-attachments/assets/22e6be11-9a8d-4207-b2ff-4cef3b601b41" alt="go2 navigation - gif" style="width: 100%;"></td>
   </tr>
 </table>
 
