@@ -22,7 +22,7 @@ Welcome to the NavRL repository! This repository provides the implementation of 
 
 For additional details, please refer to the related paper available here:
 
-Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learning Safe Flight in Dynamic Environments”, *IEEE Robotics and Automation Letters (RA-L)*, 2025. [\[preprint\]](https://arxiv.org/pdf/2409.15634) [\[video\]](https://youtu.be/EbeJW8-YlvI).
+Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learning Safe Flight in Dynamic Environments”, *IEEE Robotics and Automation Letters (RA-L)*, 2025. [\[IEEE Xplore\]](https://ieeexplore.ieee.org/document/10904341)[\[preprint\]](https://arxiv.org/pdf/2409.15634) [\[video\]](https://youtu.be/EbeJW8-YlvI).
 
 
 ## News
@@ -192,12 +192,16 @@ https://github.com/user-attachments/assets/4787f503-d8a3-4d7b-9d17-7057b2cff1eb
 ## IV. Reference
 If our work is useful to your research, please consider citing our paper.
 ```
-@article{xu2024navrl,
-  title={NavRL: Learning Safe Flight in Dynamic Environments},
+@ARTICLE{NavRL,
   author={Xu, Zhefan and Han, Xinming and Shen, Haoyu and Jin, Hanyu and Shimada, Kenji},
-  journal={arXiv preprint arXiv:2409.15634},
-  year={2024}
-}
+  journal={IEEE Robotics and Automation Letters}, 
+  title={NavRL: Learning Safe Flight in Dynamic Environments}, 
+  year={2025},
+  volume={},
+  number={},
+  pages={1-8},
+  keywords={Navigation;Robots;Collision avoidance;Training;Safety;Vehicle dynamics;Heuristic algorithms;Detectors;Autonomous aerial vehicles;Learning systems;Aerial Systems: Perception and Autonomy;Reinforcement Learning;Collision Avoidance},
+  doi={10.1109/LRA.2025.3546069}}
 ```
 
 ## V. Acknowledgement
