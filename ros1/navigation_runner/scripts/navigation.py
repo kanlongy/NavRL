@@ -7,14 +7,14 @@ from visualization_msgs.msg import Marker, MarkerArray
 from geometry_msgs.msg import Point, PoseStamped, TwistStamped, Quaternion, Vector3
 from mavros_msgs.msg import PositionTarget, State
 from mavros_msgs.srv import CommandBool, CommandBoolRequest, SetMode, SetModeRequest
-from test_navigation.srv import GetSafeAction, GetSafeActionMap
+from navigation_runner.srv import GetSafeAction, GetSafeActionMap
 from onboard_detector.srv import GetDynamicObstacles
 from map_manager.srv import GetStaticObstacles
 from ppo import PPO
 from torchrl.data import TensorSpec, CompositeSpec, UnboundedContinuousTensorSpec
 from tensordict.tensordict import TensorDict
 from torchrl.envs.utils import ExplorationType, set_exploration_type
-from test_navigation.srv import GetPolicyInference
+from navigation_runner.srv import GetPolicyInference
 from utils import vec_to_new_frame, vec_to_world
 import math
 from std_srvs.srv import Empty

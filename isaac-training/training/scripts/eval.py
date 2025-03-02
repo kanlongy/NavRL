@@ -57,8 +57,7 @@ def main(cfg):
     # PPO Policy
     policy = PPO(cfg.algo, transformed_env.observation_spec, transformed_env.action_spec, cfg.device)
 
-    # checkpoint = "/home/zhefan/catkin_ws/src/test_navigation/scripts/ckpts/checkpoint_2500.pt"
-    checkpoint = "/home/zhefan/catkin_ws/src/test_navigation/scripts/ckpts/checkpoint_final.pt"
+    checkpoint = "/home/zhefan/catkin_ws/src/navigation_runner/scripts/ckpts/checkpoint_final.pt"
     policy.load_state_dict(torch.load(checkpoint))
     
     # Episode Stats Collector

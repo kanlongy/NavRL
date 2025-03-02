@@ -111,7 +111,7 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES test_navigation
+  LIBRARIES navigation_runner
   CATKIN_DEPENDS roscpp rospy std_msgs message_generation geometry_msgs
 #  DEPENDS system_lib
 )

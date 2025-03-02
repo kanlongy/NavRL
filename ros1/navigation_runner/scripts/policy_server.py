@@ -6,7 +6,7 @@ import torch
 from torchrl.data import TensorSpec, CompositeSpec, UnboundedContinuousTensorSpec
 from ppo import PPO
 import numpy as np
-from test_navigation.srv import GetPolicyInference
+from navigation_runner.srv import GetPolicyInference
 from torchrl.envs.utils import ExplorationType, set_exploration_type
 from tensordict.tensordict import TensorDict
 
@@ -42,15 +42,8 @@ class policy_server:
 
         policy = PPO(self.cfg.algo, observation_spec, action_spec, self.cfg.device)
 
-        # checkpoint = "/home/zhefan/rl_ws/src/nav-ros/test_navigation/scripts/ckpts/prev-models/checkpoint_7000.pt" # 10 obstacle dim model 
-        # checkpoint = "/home/zhefan/rl_ws/src/nav-ros/test_navigation/scripts/ckpts/prev-models/checkpoint_24000.pt" # 10 obstacle dim model 
-        # checkpoint = "/home/zhefan/rl_ws/src/nav-ros/test_navigation/scripts/ckpts/prev-models/checkpoint_34000.pt" # 10 obstacle dim model
-        # checkpoint = "/home/zhefan/rl_ws/src/nav-ros/test_navigation/scripts/ckpts/prev-models/checkpoint_14000.pt" # 10 obstacle dim model
-        # checkpoint = "/home/zhefan/rl_ws/src/nav-ros/test_navigation/scripts/ckpts/prev-models/checkpoint_29000.pt" # 10 obstacle dim model
-        # checkpoint = "/home/zhefan/rl_ws/src/nav-ros/test_navigation/scripts/ckpts/60obs-34000.pt"
-        # checkpoint = "/home/zhefan/rl_ws/src/nav-ros/test_navigation/scripts/ckpts/80obs-24000.pt"
-        checkpoint = "/home/zhefan/rl_ws/src/nav-ros/test_navigation/scripts/ckpts/100obs-13000.pt"
-        # checkpoint = "/home/zhefan/rl_ws/src/nav-ros/test_navigation/scripts/ckpts/120obs-21000.pt"
+
+        checkpoint = "/home/zhefan/rl_ws/src/nav-ros/navigation_runner/scripts/ckpts/120obs-21000.pt"
 
         policy.load_state_dict(torch.load(checkpoint))
         print("[policy server]: model init success!")
