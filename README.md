@@ -123,8 +123,10 @@ This section demonstrates an example of deploying NavRL with ROS1 and Gazebo usi
 - Ubuntu 20.04 LTS
 - ROS1 Noetic
 
-First, copy the ```ros1``` folder from this repository into your catkin workspace.
+First, install dependencies and copy the ```ros1``` folder from this repository into your catkin workspace.
 ```
+sudo apt-get install ros-noetic-mavros*
+
 cp ros1 /path/to/catkin_ws/src
 catkin_make
 ```
