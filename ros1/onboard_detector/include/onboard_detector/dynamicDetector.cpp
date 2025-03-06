@@ -582,7 +582,7 @@ namespace onboardDetector{
         this->visTimer_ = this->nh_.createTimer(ros::Duration(this->dt_), &dynamicDetector::visCB, this);
 
 		// get dynamic obstacle service
-		this->getDynamicObstacleServer_ = this->nh_.advertiseService("onboard_detector/getDynamicObstacles", &dynamicDetector::getDynamicObstacles, this);
+		this->getDynamicObstacleServer_ = this->nh_.advertiseService("onboard_detector/get_dynamic_obstacles", &dynamicDetector::getDynamicObstacles, this);
     }
 
     bool dynamicDetector::getDynamicObstacles(onboard_detector::GetDynamicObstacles::Request& req, 
