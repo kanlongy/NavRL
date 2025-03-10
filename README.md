@@ -199,10 +199,10 @@ If our work is useful to your research, please consider citing our paper.
   journal={IEEE Robotics and Automation Letters}, 
   title={NavRL: Learning Safe Flight in Dynamic Environments}, 
   year={2025},
-  volume={},
-  number={},
-  pages={1-8},
-  keywords={Navigation;Robots;Collision avoidance;Training;Safety;Vehicle dynamics;Heuristic algorithms;Detectors;Autonomous aerial vehicles;Learning systems;Aerial Systems: Perception and Autonomy;Reinforcement Learning;Collision Avoidance},
+  volume={10},
+  number={4},
+  pages={3668-3675},
+  keywords={Navigation;Robots;Collision avoidance;Training;Safety;Vehicle dynamics;Heuristic algorithms;Detectors;Autonomous aerial vehicles;Learning systems;Aerial systems: Perception and autonomy;reinforcement learning;collision avoidance},
   doi={10.1109/LRA.2025.3546069}}
 ```
 
