@@ -7,7 +7,7 @@
 
 
 
-Welcome to the NavRL repository! This repository provides the implementation of the [NavRL](https://arxiv.org/pdf/2409.15634) framework, designed to enable robots to safely navigate dynamic environments using Reinforcement Learning. While the original paper focuses on UAV navigation, the NavRL can be extended to any robot that adopts a velocity-based control system.
+Welcome to the NavRL repository! This repository provides the implementation of the [NavRL](https://ieeexplore.ieee.org/document/10904341) framework, designed to enable robots to safely navigate dynamic environments using Reinforcement Learning. While the original paper focuses on UAV navigation, the NavRL can be extended to any robot that adopts a velocity-based control system.
 
 
 <table>
@@ -86,7 +86,7 @@ echo 'export ISAACSIM_PATH="path/to/isaac_sim-2023.1.0-hotfix.1"' >> ~/.bashrc
 cd NavRL/isaac-training
 bash setup.sh
 ```
-After the setup completes, you should have created a virtual environment named NavRL.
+After the setup completes, you should have created a virtual environment named ```NavRL```.
 
 ### Verify Installation and Run a Training Example
 Use the default parameter to run a training example with 2 robots to verify installation.
