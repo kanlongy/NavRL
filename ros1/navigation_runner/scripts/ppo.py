@@ -1,12 +1,11 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from tensordict.tensordict import TensorDict
 from tensordict.nn import TensorDictModuleBase, TensorDictSequential, TensorDictModule
 from einops.layers.torch import Rearrange
 from torchrl.modules import ProbabilisticActor
 from torchrl.envs.transforms import CatTensors
-from utils import ValueNorm, make_mlp, IndependentNormal, Actor, GAE, make_batch, IndependentBeta, BetaActor, vec_to_world
+from utils import ValueNorm, make_mlp, GAE, IndependentBeta, BetaActor, vec_to_world
 
 
 

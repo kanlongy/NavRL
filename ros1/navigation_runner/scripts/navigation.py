@@ -11,11 +11,11 @@ from navigation_runner.srv import GetSafeAction, GetSafeActionMap
 from onboard_detector.srv import GetDynamicObstacles
 from map_manager.srv import GetStaticObstacles
 from ppo import PPO
-from torchrl.data import TensorSpec, CompositeSpec, UnboundedContinuousTensorSpec
+from torchrl.data import CompositeSpec, UnboundedContinuousTensorSpec
 from tensordict.tensordict import TensorDict
 from torchrl.envs.utils import ExplorationType, set_exploration_type
 from navigation_runner.srv import GetPolicyInference
-from utils import vec_to_new_frame, vec_to_world
+from utils import vec_to_new_frame
 import math
 from std_srvs.srv import Empty
 import tf.transformations
