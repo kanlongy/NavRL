@@ -1,11 +1,8 @@
 import torch
 import torch.nn as nn
-import wandb
-import numpy as np
 from typing import Iterable, Union
 from tensordict.tensordict import TensorDict
-from omni_drones.utils.torchrl import RenderCallback
-from torchrl.envs.utils import ExplorationType, set_exploration_type
+
 
 class ValueNorm(nn.Module):
     def __init__(
@@ -156,62 +153,6 @@ def make_batch(tensordict: TensorDict, num_minibatches: int):
     ).reshape(num_minibatches, -1)
     for indices in perm:
         yield tensordict[indices]
-
-@torch.no_grad()
-def evaluate(
-    env,
-    policy,
-    cfg,
-    seed: int=0, 
-    exploration_type: ExplorationType=ExplorationType.MEAN
-):
-
-    env.enable_render(True)
-    env.eval()
-    env.set_seed(seed)
-
-    render_callback = RenderCallback(interval=2)
-    
-    with set_exploration_type(exploration_type):
-        trajs = env.rollout(
-            max_steps=env.max_episode_length,
-            policy=policy,
-            callback=render_callback,
-            auto_reset=True,
-            break_when_any_done=False,
-            return_contiguous=False,
-        )
-    # base_env.enable_render(not cfg.headless)
-    env.enable_render(not cfg.headless)
-    env.reset()
-    
-    done = trajs.get(("next", "done")) 
-    first_done = torch.argmax(done.long(), dim=1).cpu() # idx of first done will be return for each trajs
-
-    def take_first_episode(tensor: torch.Tensor):
-        indices = first_done.reshape(first_done.shape+(1,)*(tensor.ndim-2))
-        return torch.take_along_dim(tensor, indices, dim=1).reshape(-1)
-
-    traj_stats = {
-        k: take_first_episode(v)
-        for k, v in trajs[("next", "stats")].cpu().items()
-    }
-
-    info = {
-        "eval/stats." + k: torch.mean(v.float()).item() 
-        for k, v in traj_stats.items()
-    }
-
-    # log video
-    info["recording"] = wandb.Video(
-        render_callback.get_video_array(axes="t c h w"), 
-        fps=0.5 / (cfg.sim.dt * cfg.sim.substeps), 
-        format="mp4"
-    )
-    env.train()
-    # env.reset()
-
-    return info
 
 
 def vec_to_new_frame(vec, goal_direction):

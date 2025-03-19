@@ -3,7 +3,7 @@ import rospy
 import hydra
 import os
 import torch
-from torchrl.data import TensorSpec, CompositeSpec, UnboundedContinuousTensorSpec
+from torchrl.data import CompositeSpec, UnboundedContinuousTensorSpec
 from ppo import PPO
 import numpy as np
 from navigation_runner.srv import GetPolicyInference
