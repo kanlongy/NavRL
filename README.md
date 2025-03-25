@@ -207,7 +207,7 @@ If our work is useful to your research, please consider citing our paper.
 ```
 
 ## V. Acknowledgement
-The author would like to express his sincere gratitude to Professor Kenji Shimada for his great support and all CERLAB UAV team members who contribute to the development of this research.
+The authors would like to express their sincere gratitude to Professor Kenji Shimada for his great support and all CERLAB UAV team members who contribute to the development of this research.
 
 The Isaac Sim training component of the NavRL framework is built upon [OmniDrones](https://github.com/btx0424/OmniDrones).
 
