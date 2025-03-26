@@ -118,7 +118,7 @@ https://github.com/user-attachments/assets/2294bd94-69b3-4ce8-8e91-0118cfae9bcd
 
 
 ## II. Deployment Virtual Environment
-This section provides the minimum conda environment setup required to deploy ```NavRL``` (including running on a real robot). If you have already created the  ```NavRL``` onda environment during the [Isaac training step](#I-Training-in-NVIDIA-Isaac-Sim), you can skip this section. To create the conda environment, run the following commands:
+This section provides the minimum conda environment setup required to deploy ```NavRL``` (including running on a real robot). If you have already created the  ```NavRL``` conda environment during the [Isaac training step](#I-Training-in-NVIDIA-Isaac-Sim), you can skip this section. To create the conda environment, run the following commands:
 ```
 cd NavRL/isaac-training
 bash setup_deployment.sh
