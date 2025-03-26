@@ -31,14 +31,15 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
 
 ## Table of Contents
  - [Training in NVIDIA Isaac Sim](#I-Training-in-NVIDIA-Isaac-Sim)
- - [NavRL ROS1 Deployment](#II-NavRL-ROS1-Deployment)
- - [NavRL ROS2 Deployment](#III-NavRL-ROS2-Deployment)
- - [Reference](#IV-Reference)
- - [Acknowledgement](#V-Acknowledgement)
+ - [Deployment Virtual Environment](#II-Deployment-Virtual-Environment)
+ - [NavRL ROS1 Deployment](#III-NavRL-ROS1-Deployment)
+ - [NavRL ROS2 Deployment](#IV-NavRL-ROS2-Deployment)
+ - [Reference](#V-Reference)
+ - [Acknowledgement](#VI-Acknowledgement)
 
 
 ## I. Training in NVIDIA Isaac Sim
-This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim.
+This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim. **If you are not interested in training the agent yourself, feel free to skip this section and jump straight to the deployment section.**
 
 
 ### Isaac Sim Installation
@@ -116,8 +117,21 @@ After training for a sufficient amount of time, you should observe the robots le
 https://github.com/user-attachments/assets/2294bd94-69b3-4ce8-8e91-0118cfae9bcd
 
 
+## II. Deployment Virtual Environment
+This section provides the minimum conda environment setup required to deploy ```NavRL``` (including running on a real robot). If you have already created the  ```NavRL``` onda environment during the [Isaac training step](#I-Training-in-NVIDIA-Isaac-Sim), you can skip this section.
 
-## II. NavRL ROS1 Deployment
+To create the conda environment, run the following commands:
+```
+cd NavRL/isaac-training
+bash setup_deployment.sh
+```
+Once the setup is complete, a conda environment named ```NavRL``` should be created. You can verify the installation by activating the environment:
+```
+conda activate NavRL
+```
+
+
+## III. NavRL ROS1 Deployment
 This section demonstrates an example of deploying NavRL with ROS1 and Gazebo using a quadcopter robot. Ensure that your system meets the following requirements:
 
 - Ubuntu 20.04 LTS
@@ -155,7 +169,7 @@ https://github.com/user-attachments/assets/b7cc7e2e-c01d-4e44-87e3-97271a3aaa0f
 To change the environment settings, review the launch file at ```ros1/uav_simulator/launch/start.launch```. The parameters for each module are located in ```ros1/navigation_runner/cfg/*.yaml``` configuration files.
 
 
-## III. NavRL ROS2 Deployment
+## IV. NavRL ROS2 Deployment
 This section demonstrates an example of deploying NavRL with ROS2 and Isaac Sim using a Unitree Go2 quadruped robot. Ensure that your system meets the following requirements:
 - Ubuntu 22.04 LTS
 - ROS2 Humble
@@ -191,7 +205,7 @@ An Isaac Sim window will display the environment while an RViz window presents t
 https://github.com/user-attachments/assets/4787f503-d8a3-4d7b-9d17-7057b2cff1eb
 
 
-## IV. Reference
+## V. Reference
 If our work is useful to your research, please consider citing our paper.
 ```
 @ARTICLE{NavRL,
@@ -206,7 +220,7 @@ If our work is useful to your research, please consider citing our paper.
   doi={10.1109/LRA.2025.3546069}}
 ```
 
-## V. Acknowledgement
+## VI. Acknowledgement
 The authors would like to express their sincere gratitude to Professor Kenji Shimada for his great support and all CERLAB UAV team members who contribute to the development of this research.
 
 The Isaac Sim training component of the NavRL framework is built upon [OmniDrones](https://github.com/btx0424/OmniDrones).
