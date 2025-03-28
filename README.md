@@ -11,9 +11,9 @@ Welcome to the NavRL repository! This repository provides the implementation of 
 
 <table>
   <tr>
-    <td><img src="media/NavRL-demo1.gif" alt="NavRL-demo1" style="width: 100%;"></td>
-    <td><img src="media/NavRL-demo2.gif" alt="NavRL-demo2" style="width: 100%;"></td>
-    <td><img src="media/NavRL-demo3.gif" alt="NavRL-demo3" style="width: 100%;"></td>
+    <td><img src="media/NavRL-demo1.gif" style="width: 100%;"></td>
+    <td><img src="media/NavRL-demo2.gif" style="width: 100%;"></td>
+    <td><img src="media/NavRL-demo3.gif" style="width: 100%;"></td>
   </tr>
 </table>
 
