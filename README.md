@@ -9,15 +9,13 @@
 
 Welcome to the NavRL repository! This repository provides the implementation of the [NavRL](https://ieeexplore.ieee.org/document/10904341) framework, designed to enable robots to safely navigate dynamic environments using Reinforcement Learning. While the original paper focuses on UAV navigation, the NavRL can be extended to any robot that adopts a velocity-based control system.
 
-
 <table>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/49467fe4-e1c5-4f6d-a619-6e2063f99c5b" alt="mill19 2nd - gif" style="width: 100%;"></td>
-    <td><img src="https://github.com/user-attachments/assets/12a64125-169c-46a8-8a7c-bb4bbecade55" alt="mill19 1st - gif" style="width: 100%;"></td>
-    <td><img src="https://github.com/user-attachments/assets/22e6be11-9a8d-4207-b2ff-4cef3b601b41" alt="go2 navigation - gif" style="width: 100%;"></td>
+    <td><img src="media/NavRL-demo1.gif" alt="gif 1" style="width: 100%;"></td>
+    <td><img src="media/NavRL-demo2.gif" alt="gif 2" style="width: 100%;"></td>
+    <td><img src="media/NavRL-demo3.gif" alt="gif 3" style="width: 100%;"></td>
   </tr>
 </table>
-
 
 
 For additional details, please refer to the related paper available here:
