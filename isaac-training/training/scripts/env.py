@@ -587,7 +587,7 @@ class NavigationEnv(IsaacEnv):
         self.truncated = (self.progress_buf >= self.max_episode_length).unsqueeze(-1) # progress buf is to track the step number
 
         # update previous velocity for smoothness calculation in the next ieteration
-        self.prev_drone_vel_w = self.drone.vel_w[..., :3]
+        self.prev_drone_vel_w = self.drone.vel_w[..., :3].clone()
 
         # # -----------------Training Stats-----------------
         self.stats["return"] += self.reward
