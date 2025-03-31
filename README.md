@@ -95,7 +95,7 @@ Use the default parameter to run a training example with 2 robots to verify inst
 conda activate NavRL
 
 # Run a training example with default settings
-python training/script/train.py
+python training/scripts/train.py
 ```
 If the repo is installed correctly, you should be able to see the Isaac Sim window as shown below: 
 
@@ -107,7 +107,7 @@ The training environment settings and hyerparameters can be found in ```NavRL/is
 
 The following example demonstrates training with 1024 robots, 350 static obstacles, and 80 dynamic obstacles (an RTX 4090 is required). We recommend using [Wandb](https://wandb.ai/site/) to monitor your training and evaluation statistics.
 ```
-python training/script/train.py headless=True env.num_envs=1024 env.num_obstacles=350 \
+python training/scripts/train.py headless=True env.num_envs=1024 env.num_obstacles=350 \
 env_dyn.num_obstacles=80 wandb.mode=online
 ```
 After training for a sufficient amount of time, you should observe the robots learning to avoid collisions:
