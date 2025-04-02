@@ -32,7 +32,7 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
  - [Deployment Virtual Environment](#II-Deployment-Virtual-Environment)
  - [NavRL ROS1 Deployment](#III-NavRL-ROS1-Deployment)
  - [NavRL ROS2 Deployment](#IV-NavRL-ROS2-Deployment)
- - [Reference](#V-Reference)
+ - [Citation and Reference](#V-Citation-and-Reference)
  - [Acknowledgement](#VI-Acknowledgement)
 
 
@@ -201,7 +201,7 @@ An Isaac Sim window will display the environment while an RViz window presents t
 https://github.com/user-attachments/assets/4787f503-d8a3-4d7b-9d17-7057b2cff1eb
 
 
-## V. Reference
+## V. Citation and Reference
 If our work is useful to your research, please consider citing our paper.
 ```
 @ARTICLE{NavRL,
