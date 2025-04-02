@@ -42,11 +42,9 @@ local_bound_inflation: 3.0 # inflate local bound in meter
 clean_local_map: false
 
 # visualziation
-local_map_size: [5, 5, 3] # meter. in x y z direction (only for visualization)
+local_map_size: [10, 10, 3] # meter. in x y z direction (only for visualization)
 max_height_visualization: 4 # m
-visualize_global_map: true
+visualize_global_map: false
 verbose: false
 
 prebuilt_map_directory: "No"
-# prebuilt_map_directory: "path/to/static_map.pcd"
-# prebuilt_map_directory: "/home/zhefan/rl_ws/src/nav-ros/uav_simulator/worlds/generated_env/generated_env.pcd"

@@ -47,7 +47,5 @@ max_height_visualization: 4 # m
 visualize_global_map: true
 verbose: false
 
-# prebuilt_map_directory: "No"
-# prebuilt_map_directory: "path/to/static_map.pcd"
-# prebuilt_map_directory: "/home/zhefan/rl_ws/src/nav-ros/uav_simulator/worlds/generated_env/generated_env.pcd"
+
 prebuilt_map_directory: "/home/zhefan/rl_ws/src/nav-ros/uav_simulator/worlds/generated_env/generated_env_initial.pcd"
