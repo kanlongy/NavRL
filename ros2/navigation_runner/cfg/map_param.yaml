@@ -48,7 +48,7 @@ map_manager_node:
     clean_local_map: false
 
     # visualziation
-    local_map_size: [5.0, 5.0, 3.0] # meter. in x y z direction (only for visualization)
+    local_map_size: [8.0, 8.0, 3.0] # meter. in x y z direction (only for visualization)
     max_height_visualization: 4.0 # m
     visualize_global_map: true
     verbose: false
