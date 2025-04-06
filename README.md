@@ -36,6 +36,12 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
  - [Acknowledgement](#VI-Acknowledgement)
 
 
+<table>
+    <td><img src="media/simple-navigation.gif" style="width: 100%;"></td>
+    <td><img src="media/dynamic-navigation.gif" style="width: 100%;"></td>
+    <td><img src="media/multi-robot-navigation.gif" style="width: 100%;"></td>
+</table>
+
 ## I. Training in NVIDIA Isaac Sim
 This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim. **If you are not interested in training the agent yourself, feel free to skip this section and jump straight to the deployment section.**
 
