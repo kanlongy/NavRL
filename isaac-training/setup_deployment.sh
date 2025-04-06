@@ -23,7 +23,7 @@ pip install hydra-core --upgrade
 pip install einops
 pip install pyyaml
 pip install rospkg
-
+pip install matplotlib
 
 # Step 2: Install TensorDict and dependencies
 echo "Installing TensorDict dependencies..."

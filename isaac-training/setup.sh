@@ -33,6 +33,7 @@ pip install imageio-ffmpeg==0.4.9
 pip install moviepy==1.0.3
 pip install pyyaml
 pip install rospkg
+pip install matplotlib
 
 # Step 2: Install dependencies
 echo "Installing system dependencies..."

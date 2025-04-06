@@ -24,7 +24,7 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
 
 
 ## News
-
+* **2025-04-06:** We release easy-to-run Python scripts that allows users to quickly run demos.
 * **2025-02-23:** The GitHub code, video demos, and relavant papers for our NavRL framework are released. The authors will actively maintain and update this repo!
 
 ## Table of Contents
@@ -35,6 +35,31 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
  - [Citation and Reference](#V-Citation-and-Reference)
  - [Acknowledgement](#VI-Acknowledgement)
 
+## NavRL Quick Demos in 3 Minutes
+We provide a pretrained model and easy-to-run Python scripts for quick demos of the NavRL framework.
+
+<table>
+  <tr>
+    <td><img src="media/simple-navigation.gif" style="width: 100%;"></td>
+    <td><img src="media/dynamic-navigation.gif" style="width: 100%;"></td>
+    <td><img src="media/multi-robot-navigation.gif" style="width: 100%;"></td>
+  </tr>
+</table>
+
+To get started, please follow the steps in [Deployment Virtual Environment](#II-Deployment-Virtual-Environment) to set up the Conda environment. Once the setup is complete, you can run the following three demos with the following commands:
+```
+conda activate NavRL
+cd ./quick-demos
+
+# DEMO I: Navigating to a predefined goal point
+python simple-navigation.py
+
+# DEMO II: Navigating to dynamically/randomly assigned goal points
+python random-navigation.py
+
+# DEMO III: Multi-robot navigation
+python multi-robot-navigation.py
+```
 
 ## I. Training in NVIDIA Isaac Sim
 This section provides the steps for training your own RL agent with the NavRL framework in Isaac Sim. **If you are not interested in training the agent yourself, feel free to skip this section and jump straight to the deployment section.**
