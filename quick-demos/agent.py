@@ -38,7 +38,7 @@ class Agent:
         file_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ckpts")
         checkpoint = "navrl_checkpoint.pt"
 
-        policy.load_state_dict(torch.load(os.path.join(file_dir, checkpoint)))
+        policy.load_state_dict(torch.load(os.path.join(file_dir, checkpoint), map_location=self.device))
         return policy
     
     def plan(self, robot_state, static_obs_input, dyn_obs_input, target_dir):

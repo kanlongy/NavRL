@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import Circle, Rectangle
+from matplotlib.patches import Circle
 from matplotlib import animation
 import torch
 import random
@@ -14,10 +14,13 @@ from matplotlib import cm
 SEED = 0
 random.seed(SEED)
 np.random.seed(SEED)
-torch.manual_seed(SEED)
 
 # === Device ===
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+if torch.cuda.is_available():
+    device = torch.device("cuda")
+else:
+    device = torch.device("cpu")
+
 print("Using device:", device)
 
 # === Constants ===
@@ -111,7 +114,7 @@ def update(frame):
         target_tensor = torch.tensor(np.append(target_dir[:2], 0.0), dtype=torch.float, device=device).unsqueeze(0).unsqueeze(0)
 
         # Get dynamic obstacle representations
-        dyn_obs_input = get_dyn_obs_state(pos, vel, robot_positions, robot_velocities, target_tensor)
+        dyn_obs_input = get_dyn_obs_state(pos, vel, robot_positions, robot_velocities, target_tensor, device=device)
 
         # Output the planned velocity
         velocity = agent.plan(robot_state, static_obs_input, dyn_obs_input, target_tensor)

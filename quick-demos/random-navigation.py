@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import Circle, Rectangle
+from matplotlib.patches import Circle
 from matplotlib import animation
 from utils import get_robot_state, get_ray_cast
 import torch
@@ -15,9 +15,7 @@ random.seed(SEED)
 np.random.seed(SEED)
 
 # === Device ===
-if torch.backends.mps.is_available() and torch.backends.mps.is_built():
-    device = torch.device("mps") 
-elif torch.cuda.is_available():
+if torch.cuda.is_available():
     device = torch.device("cuda")
 else:
     device = torch.device("cpu")
