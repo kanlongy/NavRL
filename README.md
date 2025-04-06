@@ -49,7 +49,7 @@ We provide a pretrained model and easy-to-run Python scripts for quick demos of 
 To get started, please follow the steps in [Deployment Virtual Environment](#II-Deployment-Virtual-Environment) to set up the Conda environment. Once the setup is complete, you can run the following three demos with the following commands:
 ```
 conda activate NavRL
-cd ./quick-demos
+cd NavRL/quick-demos
 
 # DEMO I: Navigating to a predefined goal point
 python simple-navigation.py
