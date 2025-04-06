@@ -37,9 +37,11 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
 
 
 <table>
+  <tr>
     <td><img src="media/simple-navigation.gif" style="width: 100%;"></td>
     <td><img src="media/dynamic-navigation.gif" style="width: 100%;"></td>
     <td><img src="media/multi-robot-navigation.gif" style="width: 100%;"></td>
+  </tr>
 </table>
 
 ## I. Training in NVIDIA Isaac Sim
