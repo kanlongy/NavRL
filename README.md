@@ -24,7 +24,7 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
 
 
 ## News
-
+* **2025-04-06:** We release easy-to-run Python scripts that allows users to quickly run demos.
 * **2025-02-23:** The GitHub code, video demos, and relavant papers for our NavRL framework are released. The authors will actively maintain and update this repo!
 
 ## Table of Contents
@@ -36,7 +36,7 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
  - [Acknowledgement](#VI-Acknowledgement)
 
 ## NavRL Quick Demos in 3 Minutes
-We provide a pretrained model and easy-to-run Python scripts for a quick demo of the NavRL framework, as shown below:
+We provide a pretrained model and easy-to-run Python scripts for quick demos of the NavRL framework.
 
 <table>
   <tr>
@@ -46,13 +46,13 @@ We provide a pretrained model and easy-to-run Python scripts for a quick demo of
   </tr>
 </table>
 
-To get started, please follow the steps in [Deployment Virtual Environment](#II-Deployment-Virtual-Environment) to set up the Conda environment. Once the setup is complete, you can run the following three demos:
+To get started, please follow the steps in [Deployment Virtual Environment](#II-Deployment-Virtual-Environment) to set up the Conda environment. Once the setup is complete, you can run the following three demos with the following commands:
 ```
 conda activate NavRL
 cd ./quick-demos
 
 # DEMO I: Navigating to a predefined goal point
-python demo/simple-navigation.py
+python simple-navigation.py
 
 # DEMO II: Navigating to dynamically/randomly assigned goal points
 python random-navigation.py
