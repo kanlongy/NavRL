@@ -35,7 +35,7 @@ Zhefan Xu, Xinming Han, Haoyu Shen, Hanyu Jin, and Kenji Shimada, "NavRL: Learni
  - [Citation and Reference](#V-Citation-and-Reference)
  - [Acknowledgement](#VI-Acknowledgement)
 
-
+## NavRL Quick Demo in 3 Minutes
 <table>
   <tr>
     <td><img src="media/simple-navigation.gif" style="width: 100%;"></td>
