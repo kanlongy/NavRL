@@ -109,7 +109,7 @@ class Navigation:
         file_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ckpts")
         checkpoint = "navrl_checkpoint.pt"
 
-        policy.load_state_dict(torch.load(os.path.join(file_dir, checkpoint)))
+        policy.load_state_dict(torch.load(os.path.join(file_dir, checkpoint), map_location=self.cfg.device))
         return policy
 
     def takeoff(self):

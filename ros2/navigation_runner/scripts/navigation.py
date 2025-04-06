@@ -114,7 +114,7 @@ class Navigation(Node):
         policy = PPO(self.cfg.algo, observation_spec, action_spec, self.cfg.device)
         file_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "ckpts")
         checkpoint = os.path.join(file_dir, ckpt_file)
-        policy.load_state_dict(torch.load(checkpoint, weights_only=True))
+        policy.load_state_dict(torch.load(checkpoint, weights_only=True, map_location=self.cfg.device))
         self.get_logger().info("[navRunner]: Model load successfully.")
 
         return policy
