@@ -6,9 +6,9 @@ inertia:
   yy: 0.007
   yz: 0.0
   zz: 0.012
-mass: 0.716
+mass: 0.716 #0.716
 l: 0.34
-drag_coef: 0.2
+drag_coef: 0 #-0.2 阻力算进风阻里了
 rotor_configuration:
   arm_lengths:
   - 0.17

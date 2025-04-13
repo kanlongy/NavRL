@@ -1,0 +1,8 @@
+wind:
+  base_speed: 1.0  #
+  base_direction: [1, 1, 1]  
+  variable_speed: false
+  variable_direction: false 
+  fluid_density: 1.225         # rho
+  drag_coefficient: 0.2        # C_D
+  cross_section_area: 0.05     # area

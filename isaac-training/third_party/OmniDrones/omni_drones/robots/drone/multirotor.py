@@ -166,7 +166,7 @@ class MultirotorBase(RobotBase):
 
         # self.jerk = torch.zeros(*self.shape, 6, device=self.device)
         self.alpha = 0.9
-
+        
         self.masses = self.base_link.get_masses().clone()
         self.gravity = self.masses * 9.81
         self.inertias = self.base_link.get_inertias().reshape(*self.shape, 3, 3).diagonal(0, -2, -1)
@@ -183,8 +183,8 @@ class MultirotorBase(RobotBase):
         self.FORCE2MOMENT_0 = torch.broadcast_to(self.KF_0 / self.KM_0, self.THRUST2WEIGHT_0.shape)
         
         logging.info(str(self))
-
-        self.drag_coef = torch.zeros(*self.shape, 1, device=self.device) * self.params["drag_coef"]
+        self.drag_coef = torch.ones(*self.shape, 1, device=self.device) * self.params["drag_coef"]
+        #self.drag_coef = torch.zeros(*self.shape, 1, device=self.device) * self.params["drag_coef"]
         self.intrinsics = self.intrinsics_spec.expand(self.shape).zero()
 
     def setup_randomization(self, cfg):
@@ -275,7 +275,15 @@ class MultirotorBase(RobotBase):
                 quat_rotate(self.rot, self.thrusts.sum(-2)),
                 kz=0.3
             ).sum(-2)
-        self.forces[:] += (self.drag_coef * self.masses) * self.vel[..., :3]
+        
+        #self.vel[..., :3] = torch.tensor([100.0, 100.0, 0.0], device=self.device)  
+        self.forces[:] += (self.drag_coef * self.masses) * self.vel[..., :3]  #简化的阻力计算
+   
+        #print("##vel:", self.vel[..., :3])
+        #print("##drag_coef:", self.drag_coef)
+        #print("##masses:", self.masses)
+        #print("##throttle:", self.throttle)
+        #print("##drag_force:", self.forces)
 
         self.rotors_view.apply_forces_and_torques_at_pos(
             self.thrusts.reshape(-1, 3), 

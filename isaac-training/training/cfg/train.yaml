@@ -3,8 +3,9 @@ defaults:
   - drone
   - ppo
   - sim
+  - wind
 
-headless: False
+headless: false
 device: "cuda:0"
 seed: 0
 
@@ -15,7 +16,7 @@ save_interval: 1000
 
 # Training Environment
 env:
-  num_envs: 2 # Number of drones for training
+  num_envs: 10 # Number of drones for training
   max_episode_length: 2200
   env_spacing: 8.0 
   num_obstacles: 350
@@ -31,8 +32,16 @@ viewer:
   resolution: [960, 720]
 
 wandb:
-  project: NavRL
+  project: navrl #NavRL
   name: navigation_training
-  entity: CERLAB-UAV-RL-Navigation
+  entity: kanlongy-carnegie-mellon-university #CERLAB-UAV-RL-Navigation
   mode: offline # online
   run_id: #kw9xf9k9
+
+# Drone randomization scale
+train:
+  mass_scale: [0.8, 1.2]
+
+eval:
+  mass_scale: [1.0, 1.0]
+
