@@ -1,6 +1,7 @@
 import torch
 import einops
 import numpy as np
+
 from tensordict.tensordict import TensorDict, TensorDictBase
 from torchrl.data import UnboundedContinuousTensorSpec, CompositeSpec, DiscreteTensorSpec
 from omni_drones.envs.isaac_env import IsaacEnv, AgentSpec
@@ -16,7 +17,11 @@ import omni.isaac.core.utils.prims as prim_utils
 import omni.isaac.orbit.sim as sim_utils
 import omni.isaac.orbit.utils.math as math_utils
 from omni.isaac.orbit.assets import RigidObject, RigidObjectCfg
+
 import time
+from wind import WindModel 
+from omni_drones.views import RigidPrimView
+
 
 class NavigationEnv(IsaacEnv):
 
@@ -42,6 +47,8 @@ class NavigationEnv(IsaacEnv):
         self.drone.initialize()
         self.init_vels = torch.zeros_like(self.drone.get_velocities())
 
+        # Drone randomization
+        #self.drone.setup_randomization(cfg)
 
         # LiDAR Intialization
         ray_caster_cfg = RayCasterCfg(
@@ -60,7 +67,29 @@ class NavigationEnv(IsaacEnv):
         self.lidar = RayCaster(ray_caster_cfg)
         self.lidar._initialize_impl()
         self.lidar_resolution = (self.lidar_hbeams, self.lidar_vbeams) 
-        
+
+        # Wind Intialization      
+ 
+        self.wind_model = WindModel(
+            device=self.device,
+            num_envs=self.num_envs,
+            base_speed=cfg.wind.base_speed,
+            base_direction=torch.tensor(cfg.wind.base_direction, device=self.device),
+            variable_speed=cfg.wind.variable_speed,
+            variable_direction=cfg.wind.variable_direction,
+            fluid_density=cfg.wind.fluid_density,
+            drag_coefficient=cfg.wind.drag_coefficient,
+            cross_section_area=cfg.wind.cross_section_area
+        )
+
+        self.base_link = RigidPrimView(
+            prim_paths_expr="/World/envs/env_.*/Hummingbird_0/base_link",  
+            name="base_link",
+            shape=(self.num_envs,),
+        )
+        self.base_link.initialize()
+ 
+
         # start and target 
         with torch.device(self.device):
             # self.start_pos = torch.zeros(self.num_envs, 1, 3)
@@ -72,8 +101,7 @@ class NavigationEnv(IsaacEnv):
             self.prev_drone_vel_w = torch.zeros(self.num_envs, 1 , 3)
             # self.target_pos[:, 0, 0] = torch.linspace(-0.5, 0.5, self.num_envs) * 32.
             # self.target_pos[:, 0, 1] = 24.
-            # self.target_pos[:, 0, 2] = 2.     
-
+            # self.target_pos[:, 0, 2] = 2.   
 
     def _design_scene(self):
         # Initialize a drone in prim /World/envs/envs_0
@@ -246,8 +274,6 @@ class NavigationEnv(IsaacEnv):
             self.dyn_obs_size[category_idx*self.dyn_obs_num_of_each_category:(category_idx+1)*self.dyn_obs_num_of_each_category] \
                 = torch.tensor([obs_width, obs_width, obs_height], dtype=torch.float, device=self.cfg.device)
 
-
-
     def move_dynamic_obstacle(self):
         # Step 1: Random sample new goals for required update dynamic obstacles
         # Check whether the current dynamic obstacles need new goals
@@ -289,7 +315,6 @@ class NavigationEnv(IsaacEnv):
             dynamic_obstacle.update(self.cfg.sim.dt)
 
         self.dyn_obs_step_count += 1
-
 
     def _set_specs(self):
         observation_dim = 8
@@ -344,8 +369,7 @@ class NavigationEnv(IsaacEnv):
         self.observation_spec["info"] = info_spec
         self.stats = stats_spec.zero()
         self.info = info_spec.zero()
-
-    
+   
     def reset_target(self, env_ids: torch.Tensor):
         if (self.training):
             # decide which side
@@ -372,7 +396,6 @@ class NavigationEnv(IsaacEnv):
             self.target_pos[:, 0, 0] = torch.linspace(-0.5, 0.5, self.num_envs) * 32.
             self.target_pos[:, 0, 1] = -24.
             self.target_pos[:, 0, 2] = 2.            
-
 
     def _reset_idx(self, env_ids: torch.Tensor):
         self.drone._reset_idx(env_ids, self.training)
@@ -417,16 +440,45 @@ class NavigationEnv(IsaacEnv):
         self.height_range[env_ids, 0, 1] = torch.max(pos[:, 0, 2], self.target_pos[env_ids, 0, 2])
 
         self.stats[env_ids] = 0.  
-        
+
+    def compute_drag_force_from_wind(self, wind_velocity, uav_velocity, rho, C_D, area):
+
+        v_rel = wind_velocity - uav_velocity                     
+        speed_squared = torch.sum(v_rel ** 2, dim=-1, keepdim=True)   
+        speed_norm = torch.sqrt(speed_squared + 1e-6)                 
+        drag_magnitude = 0.5 * rho * C_D * area * speed_squared       
+        drag_force = drag_magnitude * (v_rel / speed_norm)          
+        #print("drag_force=",drag_force)
+        return drag_force
+
     def _pre_sim_step(self, tensordict: TensorDictBase):
         actions = tensordict[("agents", "action")] 
         self.drone.apply_action(actions) 
+
+        # Wind force update
+        self.wind_model.step(self.dt)
+        drag_force = self.compute_drag_force_from_wind(
+        wind_velocity=self.wind_model.get_wind(),
+        uav_velocity = self.drone.vel_w[:, 0, :3],
+        rho=self.wind_model.rho,
+        C_D=self.wind_model.C_D,
+        area=self.wind_model.area
+        )
+        positions = 0.2 * (torch.rand_like(drag_force) - 0.5)
+
+        self.base_link.apply_forces_and_torques_at_pos(
+            drag_force,        
+            None,             
+            positions,   
+            None,             
+            True              
+        )
 
     def _post_sim_step(self, tensordict: TensorDictBase):
         if (self.cfg.env_dyn.num_obstacles != 0):
             self.move_dynamic_obstacle()
         self.lidar.update(self.dt)
-    
+
     # get current states/observation
     def _compute_state_and_obs(self):
         self.root_state = self.drone.get_state(env_frame=False) # (world_pos, orientation (quat), world_vel_and_angular, heading, up, 4motorsthrust)
@@ -532,7 +584,7 @@ class NavigationEnv(IsaacEnv):
             closest_dyn_obs_distance_reward[dyn_obs_range_mask] = self.cfg.sensor.lidar_range
             
         else:
-            dyn_obs_states = torch.zeros(self.num_envs, 1, self.cfg.algo.feature_extractor.dyn_obs_num, 10, device=self.cfg.device)
+            dyn_obs_states = torch.zeros(self.num_envs, 1, self.cfg.algo.feature_extractor.dyn_obs_num, 8, device=self.cfg.device)
             dynamic_collision = torch.zeros(self.num_envs, 1, dtype=torch.bool, device=self.cfg.device)
             
         # -----------------Network Input Final--------------
@@ -587,7 +639,7 @@ class NavigationEnv(IsaacEnv):
         self.truncated = (self.progress_buf >= self.max_episode_length).unsqueeze(-1) # progress buf is to track the step number
 
         # update previous velocity for smoothness calculation in the next ieteration
-        self.prev_drone_vel_w = self.drone.vel_w[..., :3].clone()
+        self.prev_drone_vel_w = self.drone.vel_w[..., :3]
 
         # # -----------------Training Stats-----------------
         self.stats["return"] += self.reward
