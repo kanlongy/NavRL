@@ -69,7 +69,6 @@ class NavigationEnv(IsaacEnv):
         self.lidar_resolution = (self.lidar_hbeams, self.lidar_vbeams) 
 
         # Wind Intialization      
- 
         self.wind_model = WindModel(
             device=self.device,
             num_envs=self.num_envs,
@@ -79,7 +78,9 @@ class NavigationEnv(IsaacEnv):
             variable_direction=cfg.wind.variable_direction,
             fluid_density=cfg.wind.fluid_density,
             drag_coefficient=cfg.wind.drag_coefficient,
-            cross_section_area=cfg.wind.cross_section_area
+            cross_section_area=cfg.wind.cross_section_area,
+            drag_scale_range=cfg.wind.drag_scale_range,
+            area_scale_range=cfg.wind.area_scale_range
         )
 
         self.base_link = RigidPrimView(
@@ -445,7 +446,9 @@ class NavigationEnv(IsaacEnv):
 
         v_rel = wind_velocity - uav_velocity                     
         speed_squared = torch.sum(v_rel ** 2, dim=-1, keepdim=True)   
-        speed_norm = torch.sqrt(speed_squared + 1e-6)                 
+        speed_norm = torch.sqrt(speed_squared + 1e-6)
+        C_D = C_D.view(-1, 1)
+        area = area.view(-1, 1)                 
         drag_magnitude = 0.5 * rho * C_D * area * speed_squared       
         drag_force = drag_magnitude * (v_rel / speed_norm)          
         #print("drag_force=",drag_force)
@@ -464,14 +467,16 @@ class NavigationEnv(IsaacEnv):
         C_D=self.wind_model.C_D,
         area=self.wind_model.area
         )
-        positions = 0.2 * (torch.rand_like(drag_force) - 0.5)
-
+        #positions = torch.zeros_like(drag_force)
+        #print("##uav_velocity:", self.drone.vel_w[:, 0, :3])
+        #print("##wind_velocity:", self.wind_model.get_wind())
+        #print("##drag_force:", drag_force)
         self.base_link.apply_forces_and_torques_at_pos(
             drag_force,        
             None,             
-            positions,   
+            None,   
             None,             
-            True              
+            False              
         )
 
     def _post_sim_step(self, tensordict: TensorDictBase):

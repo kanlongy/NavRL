@@ -1,8 +1,10 @@
 wind:
-  base_speed: 1.0  #
+  base_speed: 3.0  
   base_direction: [1, 1, 1]  
-  variable_speed: false
-  variable_direction: false 
+  variable_speed: True  
+  variable_direction: True 
   fluid_density: 1.225         # rho
-  drag_coefficient: 0.2        # C_D
-  cross_section_area: 0.05     # area
+  drag_coefficient: 0.6        # C_D 0.102 实际无人机产生的涡流会增大风阻
+  cross_section_area: 0.181     # area 0.181
+  drag_scale_range: [0.7, 1.3]
+  area_scale_range: [0.9, 1.1]
